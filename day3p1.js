@@ -34,7 +34,7 @@ parse = function(data){
         Y2.push(y2);
     }
 }
-var output;
+var output=0;
 compute = function(a,b,c,d){
    for(let i=0;i<a.length;i++){
        for(let j=c[i];j<d[i];j++){
@@ -43,18 +43,12 @@ compute = function(a,b,c,d){
            }
        }
    }
-   for(let i=0;i<a.length;i++){
-        var overlapping=false;
-        for(let j=c[i];j<d[i];j++){
-            for(let k=a[i];k<b[i];k++){
-                if(fabric[k][j]>=2){
-                    overlapping=true;
-                }
-            }
-        }
-        if(overlapping===false){
-            output=ids[i];
-        }
-}
+   for(let i=0;i<fabric.length;i++){
+       for(let j=0;j<fabric[1].length;j++){
+           if(fabric[j][i]>=2){
+               output++
+           }
+       }
+   }
    console.log(output)
 }
